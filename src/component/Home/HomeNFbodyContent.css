@@ -1,0 +1,83 @@
+.HomeNFBodyContentTitle{
+    color: white ; 
+    font-weight: bold ;
+    font-family: "Netflix Sans";
+    padding: 0 0 20px 0 ;
+    width: 80% ;
+    text-align: left;
+    font-size: 40px ;
+}
+.HomeNFbodyContentWrapperFilm{
+    margin: 50px 0 0 0  ; 
+    overflow: hidden ;
+    display: flex ;
+    justify-content: center ;
+    align-items: center ;
+    flex-direction: column;
+}
+.HomeNFbodyContentWrapperImage,.HomeNFbodyContentWrapperImageInside2{
+    color: white ; 
+    display: flex ;
+    justify-content: center ;
+    align-items: center ;
+}
+.HomeNFbodyContentWrapperImageInside2{
+    width: 100% ;
+    transition: 0.5s;
+}
+.HomeNFbodySideBar{
+    font-size: 50px ;
+}
+.HomeNFbodyContentImage{
+    padding: 0 10px 0 10px ; 
+    transform: translateX(00px);
+    display: flex ;
+    justify-content: center ;
+    align-items: center ;
+    position: relative;
+}
+.HomeNFbodyContentImageDetail{
+    overflow: hidden ;
+    position: absolute ;
+    width: 92% ;
+    height: 100% ;
+    background-color: rgba(29, 4, 4, 0.578);
+    transition: 0.5s ;
+}
+.translateY300px{
+    transform: translateY(300px);
+}
+.HomeNFbodyContentImageDetail>.HomeNFbodyContentImageDetailText{
+    color : white ; 
+    padding: 100px 10px 0 10px ; 
+    text-align: center ;
+    font-weight: bold ;
+    font-size: 20px ;
+    font-family: "Netflix Sans";
+}
+.HomeNFbodyContentImageDetail>span{
+    color: white ; 
+    margin: 20px 20px 20px 20px ;  
+    text-align: center ;
+    font-family: "Netflix Sans" ;
+    font-size: 15px ;
+}
+.HomeNFbodyContentImageButtonWrapper{
+    display: flex ;
+    width: 100% ;
+    justify-content: space-around ;
+    align-items: center ;
+    margin: 20px 0 0 0 ; 
+}
+.HomeNFbodyContentImageButton{
+    font-size: 8px ;
+}
+.HomeNFbodyContentWrapperImageInside{
+    overflow: hidden;
+}
+.HomeNFbodyContentWrapperImage{
+    width: 90% ;
+}
+.HomeNFbodyContentWrapperImageInside{
+    background-color: rgba(93, 15, 15, 0.602) ;
+}

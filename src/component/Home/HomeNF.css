@@ -1,0 +1,24 @@
+.HomeNFimageWrapper{
+    display: flex ;
+    justify-content: center ;
+    align-items: center ;
+    height: auto ;
+    background-color: black ;
+    flex-direction: column ;
+    /* padding: 50px ;  */
+    flex-direction: row ;
+}
+.HomeNFPlayTrailer{
+    width: 100% ;
+    height: 650px ;
+    background-position: top center ;
+    background-repeat: no-repeat ;
+    background-size: cover ;
+}
+p,h1{
+    padding: 0 ; 
+    margin: 0 ; 
+}
+.HomeNFContainer{
+    background-color: black ;
+}

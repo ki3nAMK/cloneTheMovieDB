@@ -1,0 +1,137 @@
+.HomeNFPlayTrailer{
+    position: relative;
+    height: 650px ;
+    width: 100% ;
+}
+.HomeNFChildTrailernavBar{
+    justify-content: space-between;
+    width: 100% ;
+    z-index: 2;
+}
+.HomeNFChildTrailerli{
+    list-style-type: none ;
+    padding: 0 10px 0 10px ; 
+    text-align: center ;
+}
+.HomeNFChildTrailerside{
+    justify-content: center ;
+}
+.HomeNFChildTrailercenter{
+    display: flex ;
+    align-items: center ;
+}
+h3{
+    padding: 0 ; 
+    margin: 0 ; 
+}
+.HomeNFChildTrailericon{
+    width: 50%;
+}
+.HomeNFChildTrailerWhite{
+    color: rgba(229, 208, 208, 0.75) ; 
+    transition: 0.5s ;
+}
+.HomeNFChildTrailerWhiteFocus{
+    color: white ; 
+}
+.HomeNFChildTrailerWhite:hover{
+    color: white ;
+}
+.HomeNFChildTrailerDownOut{
+    padding-right: 40px ;
+}
+.HomeNFChildTrailercursor{
+    cursor: pointer ;
+}
+.HomeNFChildTrailerHiddenIcon{
+    display: none ;
+}
+.HomeNFChildTrailerWrapperDrawer{
+    display: flex ;
+    flex-direction: column ;
+    justify-content: center ;
+    align-items: center ;
+    font-size: 20px ;
+    text-align: center  ;
+}
+.HomeNFChildTrailerDrawer{
+    padding: 15px 0 15px 0 ; 
+}
+.build{
+    border: 1px solid white ; 
+}
+.HomeNFChildTrailerDetail{
+    width: 35% ;
+    position: absolute ;
+    top: 30% ;
+    left: 5% ;  
+    z-index: 0;
+}
+.HomeNFChildTrailerDetail>.header{
+    font-size: 30px;
+    font-family: "Goudy Old Style" ;
+    font-weight: bold;
+    text-align: center ;
+    padding: 0 0 10px 0 ; 
+}
+.HomeNFChildTrailerDetail>.detail{
+    font-size: 14px ;
+    font-family: "Netflix Sans";
+    margin-bottom: 20px ; 
+}
+.HomeNFChildTrailerDetail>.advertise{
+    display: flex ;
+    justify-content: flex-start ;
+    align-items: center ;
+    padding: 10px 0 10px 0 ; 
+}
+.HomeNFChildTrailerDetail>.advertise>.icon{
+    width: 40px ; height: 40px ;
+    background-color: rgba(225, 55, 55, 0.723) ;
+    color: white ; 
+    display: flex ;
+    justify-content: center ;
+    align-items: center ;
+}
+.HomeNFChildTrailerDetail>.advertise>.content{
+    text-align: center;
+    font-size: 20px ;
+    font-family: "Netflix Sans";
+    text-indent: 15px ; 
+    font-weight: bold ;
+
+}
+@media (max-width:1000px) {
+    .HomeNFChildTrailerHiddenIcon{
+        display: block ;
+    }
+    .HomeNFChildTrailerspan,.HomeNFChildTrailerul,.HomeNFChildTrailerDetail>.detail{
+        display: none ;
+    }
+    .HomeNFChildTrailericon{
+        width: 100px ;
+    }
+    .HomeNFChildTrailerDetail>.header{
+        font-size: 10px ;
+    }
+}
+.HomeNFChildTrailerYoutubeTrailer{
+    position: absolute  ;
+    z-index: 1 ;
+    left: 0 ; 
+    bottom: 0 ;
+    top: 0 ; 
+    right: 0 ;
+}
+.HomeNFChildClose{
+    position: absolute;
+    z-index: 2;
+    bottom: 25px ; 
+    left    : 25px ;
+    background-color: black ;
+    color: white ; 
+    border: 0 ; 
+}
+.HomeNFChildreview{
+    background-color: black ;
+}

@@ -1,0 +1,65 @@
+.MylistImage{
+    width: 60px ;
+    height: auto;
+}
+.mylistHeader{
+    font-weight: bold ;
+    color: blueviolet ;
+    font-size: 15px ;
+}
+.font-check{
+    font-family: "Franklin Gothic Medium";
+}
+.mylistButton{
+    cursor: pointer ;
+}
+.mylistTable{
+    overflow: hidden ;
+    border-radius: 25px ;
+    box-shadow:   
+    0 0 5px rgb(255, 227, 253) ,
+    0 0 5px rgb(255, 227, 253) ,
+    0 0 5px rgb(255, 227, 253) ,
+    0 0 5px rgb(255, 227, 253) ;
+    border-radius: 20px ;
+    height: auto ;
+}
+.w-80{
+    width: 80% ;
+}
+.mylistCharts{
+    display: flex ;
+    justify-content: space-between ;
+    align-items: center ;
+    margin: 10px 20px 0 20px ; 
+}
+.mylistChart{
+    width: 31.5% ;
+    height: auto;
+    padding: 5px ; 
+    margin-left: 5px ;
+}
+.cursor-pointer{
+    cursor: pointer ;
+    margin: 5px ; 
+}
+.TableWrapper{
+   margin: 20px ;
+   display: flex ; 
+   justify-content: space-around ;
+   align-self: center ;  
+}
+.h-auto{
+    height: fit-content ;
+}
+.mylistOtherFunc{
+    width: 15% ;
+    padding: 10px ; 
+    display: flex ;
+    justify-self: center ;
+    align-items: center ;
+    flex-direction: column ;
+}
+.mylistButton{
+    margin: 10px ; 
+}

@@ -1,0 +1,153 @@
+.PosterWrapper{
+    display: grid ; 
+    grid-template-columns: auto auto auto auto auto ;
+    width: 100% ;
+    height: 100vh ;
+    background-color: black ;
+    overflow: hidden ;
+    gap: 5px ; 
+    position: relative ;
+    z-index: 0;
+}
+.Postercolumn{
+    height: auto ;
+}
+.Posteritem1{
+    transform: translateY(-8000px) ;
+    animation: slide1 60s linear infinite ; 
+}
+@keyframes slide1 {
+    0% {
+      transform: translateY(-8000px) ;
+    }
+    50% {
+      transform: translateY(-1000px); 
+    }
+    100% {
+        transform: translateY(-8000px) ;
+    }
+}
+.Posteritem2{
+    animation: slide2 60s linear infinite ; 
+}
+@keyframes slide2 {
+    0% {
+      transform: translateY(0px) ;
+    }
+    50% {
+      transform: translateY(-7000px); 
+    }
+    100% {
+        transform: translateY(0px) ;
+    }
+}
+.Posteritem3{
+    animation: slide3 60s linear infinite ; 
+}
+@keyframes slide3 {
+    0% {
+      transform: translateY(-7200px) ;
+    }
+    50% {
+      transform: translateY(-200px); 
+    }
+    100% {
+        transform: translateY(-7200px) ;
+    }
+}
+.Posteritem4{
+    animation: slide4 60s linear infinite ; 
+}
+@keyframes slide4 {
+    0% {
+      transform: translateY(-1000px) ;
+    }
+    50% {
+      transform: translateY(-8000px); 
+    }
+    100% {
+        transform: translateY(-1000px) ;
+    }
+}
+.Posteritem5{
+    animation: slide5 60s linear infinite ; 
+}
+@keyframes slide5 {
+    0% {
+      transform: translateY(-7000px) ;
+    }
+    50% {
+      transform: translateY(0px); 
+    } 
+    100% {
+        transform: translateY(-7000px) ;
+    }
+}
+.Postertitle{
+    width: 100% ;
+    height: 100vh;
+    z-index: 2;
+    position: absolute ;
+    top: 0 ; 
+    left: 0 ; 
+    background-color: rgba(9, 0, 0, 0.626) ;
+}
+.PostertitleInside{
+    width: 80% ;
+    height: auto ;
+    flex-direction: column ;
+}
+.PostertitleH1{
+    font-weight: bold ;
+    font-size: 40px ; 
+}
+.Posterflex{
+    display: flex ;
+    justify-content: center ;
+    align-items: center ;
+}
+.Postertext{
+    padding: 15px 0 15px 0 ; 
+    margin : 0 ; 
+    color: white ; 
+    font-family: 'Ubuntu', sans-serif ;
+    text-align: center ;
+}
+@media (max-width:1400px) {
+    .PosterWrapper{
+        grid-template-columns: auto auto auto auto ;    
+    }
+    .Posteritem1{
+        display: none ;
+    }
+}
+@media (max-width:1048px) {
+    .PosterWrapper{
+        grid-template-columns: auto auto auto ;    
+    }
+    .Posteritem2{
+        display: none ;
+    }
+}
+@media (max-width:691px) {
+    .PosterWrapper{
+        grid-template-columns: auto auto;    
+    }
+    .Posteritem3{
+        display: none ;
+    }
+}
+@media (max-width:415px) {
+    .PosterWrapper{
+        grid-template-columns: auto ;
+    }
+    .Posteritem4{
+        display: none ;
+    }
+    .Postercolumn{
+        padding-left: 50px ;
+    }
+    .PostertitleH1{
+        font-size: 20px ;
+    }
+}

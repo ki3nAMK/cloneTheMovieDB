@@ -1,0 +1,31 @@
+.HomeWrapper{
+    width: 100%;
+    display: flex ;
+    justify-content: center; 
+    align-items: center ;
+    flex-direction: column ;
+    background-color: black;
+}
+.HomeContainer{
+    background-color: rgba(78, 37, 37, 0.274);
+    width: 90% ;
+    padding: 5px ;
+    display: grid ; 
+    grid-template-columns: auto auto auto auto ;
+    gap: 20px ;  
+}
+@media (max-width:1400px) {
+    .HomeContainer{
+        grid-template-columns: auto auto auto ;    
+    }
+}
+@media (max-width:1048px) {
+    .HomeContainer{
+        grid-template-columns: auto auto ;    
+    }
+}
+@media (max-width:691px) {
+    .HomeContainer{
+        grid-template-columns: auto ;    
+    }
+}

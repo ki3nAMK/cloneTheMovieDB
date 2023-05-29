@@ -1,0 +1,152 @@
+*{
+    margin: 0 ; 
+    padding: 0 ; 
+}
+body{
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.ProfileWrapperHeader{
+    /* width: 98% ; */
+    height: 100vh ;
+    position: relative ;
+}
+.ProfileNavbar{
+    width: 250px ;
+    height: 100%;
+    background-color: rgba(240, 248, 255, 0.873);
+    position: absolute ;
+    top: 0 ; 
+    left: 0 ; 
+    z-index: 1;
+    bottom: 0 ; 
+}
+.ProfileContent{
+    height: 100% ;
+    margin-left: 250px ;
+    overflow: auto;
+}
+.ProfileContent::-webkit-scrollbar{
+    width: 5px ;
+}
+.ProfileContent::-webkit-scrollbar-thumb{
+    background-color: gray ; 
+    border-radius: 100rem ; 
+}
+.ProfileContent::-webkit-scrollbar-track{
+    background-color: black ;
+}
+@media screen and (max-width:1452px) {
+    .ProfileWrapperHeader{
+        width: 1452px ;
+    }
+}
+.ProfileNavBarHeader{
+    display: flex ;
+    justify-content: space-between ;
+    align-items: center ;
+    height: 10% ;
+    margin: 0 10px 0 10px ; 
+}
+.ProfileNavBarHeader>p{
+    font-family: "Franklin Gothic Medium";
+    font-size: 20px;
+    font-weight: bold ;
+}
+.ProfileNavBarHeader>div>span{
+    margin: 0 10px 0 10px ; 
+    position: relative;
+    z-index: 0 ;
+    font-size: 20px ;
+}
+.ProfileNavBarHeader>div>span>.ProfileCount{
+    position: absolute ;
+    top: -10px ; 
+    right: -5px ; 
+}
+.ProfileUser{
+    display: flex ;
+    justify-content: center ;
+    align-items: center ;
+    flex-direction: column;
+    padding-bottom: 50px ; 
+}
+.ProfileUser>h3{
+    padding: 10px 0 0 0 ; 
+    margin: 0 ; 
+}
+.ProfileUser>h6{
+    padding: 10px 0 0 0 ; 
+    margin: 0 ; 
+    opacity: 0.3;
+}
+.ProfileUser>span{
+    position: relative;
+    z-index: 0;
+}
+.ProfileUser>span::before{
+    content: "" ;
+    width: 15px ;
+    height: 15px ;
+    background-color: rgb(86, 151, 255) ; 
+    position: absolute;
+    border-radius: 100% ;
+    z-index: 1 ;
+}
+.ProfileButtonFunction{
+    width: 60% ;
+    margin: 20px 0 20px 50px  ; 
+    padding: 10px ; 
+    display: flex ;
+    justify-content: flex-start ;
+    align-items: center ;
+    border-radius: 10px ;
+    overflow: hidden ;
+    cursor: pointer ;
+    transition: 0.5s;
+}
+.ProfileButtonFunction>span{
+    padding: 7px ;    
+    color: rgb(86, 151, 255) ;
+    transition: 0.5s ;
+}
+.ProfileButtonFunction>p{
+    font-size: 14px ;
+    font-weight: bold ;
+    color: black ; 
+    transition: 0.5s;
+    margin-left: 20px ;
+}
+.ProfileButtonFunction:hover{
+    color: white ; 
+    background-color: rgb(86, 151, 255) ;
+    box-shadow:   
+    0 2px 10px rgb(6, 0, 0) ;
+}
+.ProfileButtonFunction:hover .ProfileNavBarHeaderP{
+    color:rgba(240, 248, 255, 0.873) ;
+}
+.ProfileButtonFunction:hover .ProfileNavBarHeaderSpan{
+    background-color: white ;
+    border-radius: 10px ;
+    color: black ; 
+}
+.ProfileContentOverview{
+    /* width: 100%  ; */
+    padding: 20px 0 10px 20px ; 
+}
+.ProfileContentOverview>p{
+    font-weight: bold;
+    font-size: 14px ;
+}
+.ProfileContentOverview>h3{
+    font-weight: normal ;
+    font-size: 12px ;
+    opacity: 0.9 ;
+    margin-bottom: 10px ;
+}
+.crossLine{
+    width: 80% ;
+    border: 1px solid black ;
+    opacity: 0.2;
+}
