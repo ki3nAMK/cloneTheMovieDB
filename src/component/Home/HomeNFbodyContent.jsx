@@ -13,14 +13,22 @@ import Loader from "./loader";
 const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
-      items: 6
+      items: 10
     },
     desktop: {
-      breakpoint: { max: 3000, min: 1024 },
+      breakpoint: { max: 3000, min: 1513 },
       items: 7  
     },
+    smallDestop: {
+      breakpoint: { max:1513 , min: 1229 } ,
+      items: 6 
+    },
+    superSmallDestop: {
+      breakpoint: { max:1229 , min: 1083 } ,
+      items: 5
+    },
     tablet: {
-      breakpoint: { max: 1024, min: 464 },
+      breakpoint: { max: 1083, min: 464 },
       items: 4
     },
     smallTablet: {
@@ -43,18 +51,20 @@ function HomeNFbodyContent(item) {
     const listItemsRef = useRef([]); listItemsRef.current = [] ;
     const res = useSelector( (state) => state.api.favouriteFilm) ;
     const [isLoading,SetIsLoading] = useState(false) ;
-    const dispatch = useDispatch()
+    const dispatch = useDispatch() ;
     useEffect( () => {
+        const abortController = new AbortController ;
         const getAPI = async () => {
-            const response = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${APIkey}&with_genres=${item.Id}`) ;
-            setData(response.data.results) ;
+            const response = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${APIkey}&with_genres=${item.Id}`
+            ,{ signal:abortController.signal }) ; 
+            setData(response.data.results) ; 
         } ; SetIsLoading(true) ; getAPI() ;  SetIsLoading(false) ;
     },[])
     const addEventListenerToRef = () => {
         listItemsRef.current.forEach( (element,pos) => {
             element.addEventListener("mouseover", (e) => {
                 let target = element.querySelector(".HomeNFbodyContentImageDetail") ;
-                target.classList.remove("translateY300px") ;
+                target.classList.remove("translateY300px") ;    
             })
             element.addEventListener("mouseout", (e) => {
                 let target = element.querySelector(".HomeNFbodyContentImageDetail") ;
@@ -75,7 +85,7 @@ function HomeNFbodyContent(item) {
                     <div className="HomeNFbodyContentImageDetailText">{film.original_title}</div> 
                     <span>With vote average : {film.vote_average} <StarOutlined /></span>   
                     <div className="HomeNFbodyContentImageButtonWrapper">
-                        <Button ghost type="primary"><p className="HomeNFbodyContentImageButton">Watch Movie</p></Button>
+                    <Button ghost type="primary"><p className="HomeNFbodyContentImageButton">Watch Movie</p></Button>
                     <Button ghost type="primary" onClick={ (e) => {
                         dispatch(addIntoMyList({
                             movieID:film.id ,
@@ -107,3 +117,4 @@ function HomeNFbodyContent(item) {
 }
 
 export default memo(HomeNFbodyContent) ; 
+

@@ -1,21 +1,20 @@
-import { Fragment, memo, useEffect, useState } from "react";
-import { Space, Table, Tag , Button } from "antd";
-import { useDispatch, useSelector } from "react-redux";
+import { Fragment, memo, useEffect, useState } from "react" ;
+import { Space, Table, Tag , Button } from "antd" ;
+import { useDispatch, useSelector } from "react-redux" ;
 import "./MyList.css" ;
 import { StarOutlined , AreaChartOutlined , CloseOutlined , DeleteOutlined , 
- RedoOutlined , FunnelPlotOutlined } from "@ant-design/icons";
+ RedoOutlined , FunnelPlotOutlined } from "@ant-design/icons" ;
 import { removeFromMyList , reverseDataForMyList , 
   sortByNameMyList , deleteAllDataMyList } from "../../features/counter/getAPI" ;
 import DemoDualAxes from "./DualLine" ;
 import DemoPie from "./Pie" ;
 import DemoBar from "./Rose" ;
 import axios from "axios";
-import loader from "../../component/Home/loader";
-const { Column, ColumnGroup } = Table; 
+import Loader from "../../component/Home/loader";
+const { Column, ColumnGroup } = Table ; 
 
 function MyList() {
     const [genres,setGenres] = useState([]) ;
-    const respond = JSON.parse(localStorage.getItem("myList :")) ;
     let response = useSelector( state => state.api.favouriteFilm ) ;
     const dispatch = useDispatch() ;
     const [loading,setIsLoading] = useState(false) ;
@@ -39,9 +38,15 @@ function MyList() {
         }) ; 
         return updatedData ;    
     } 
-    useEffect( () => {
-        const getData = async () => {
-            const response = await axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=8487dd7f765e35a7fcac553fcc1d84db&language=en-US') ;
+    const abortControllerTimeOut = (timeoutMs) => {
+        const abortController = new AbortController ;
+        setTimeout( () => abortController.abort(), timeoutMs || 0 ) ;
+        return abortController.signal ;
+    }
+    useEffect( () => {  
+        const getData = async () => {   
+            const response = await axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=8487dd7f765e35a7fcac553fcc1d84db&language=en-US'
+            , { signal:abortControllerTimeOut(5000) }) ;
             setGenres(response.data.genres) ;
         } ; getData() ; setIsLoading(false) ;   
     },[])
@@ -52,6 +57,11 @@ function MyList() {
         const elementColor = newArr.find( (element) => {
             if(element.number===data.length) return element.number ; })
         return <Tag key={id.toString()+"genres"} className="font-check cursor-pointer" color={elementColor.color}>{data}</Tag>
+    }
+    const HandleGenres = (tags) => {
+        return tags.map( (tag,pos) => ( <span key={pos.toString()+"genresUpdated"}>
+            { genres.length!==0 ? logOutTask(tag) : null }
+        </span>))
     }
     return (
     <Fragment>
@@ -77,7 +87,6 @@ function MyList() {
         <Column title={"Popularity"} dataIndex={`moviePopularity`} key={`moviePopularity`} className="font-check"></Column>
         <Column title={"Genres"} dataIndex={`movieGenre`} key={`genresUpdated`}  width={200} className="font-check" render={ (tags) => {
             return <div key={tags.length.toString()+"genresUpdated"}>
-                { loading ? <loader /> : null }
                 { tags.map( (tag,pos) => ( <span key={pos.toString()+"genresUpdated"}>
                     { genres.length!==0 ? logOutTask(tag) : null }
                 </span>))}
@@ -103,7 +112,7 @@ function MyList() {
         <Button ghost type="primary" className="mylistButton" onClick={ (e) => {
             e.preventDefault() ; sortDataMylist() ;
         }}>Sort Data <FunnelPlotOutlined /></Button>
-        <Button ghost type="primary" className="mylistButton" onClick={ (e) => {
+        <Button ghost type="primary" class  Name="mylistButton" onClick={ (e) => {
             e.preventDefault() ; deleteAllData() ;
         }}>Delete All <DeleteOutlined /></Button>
       </div>

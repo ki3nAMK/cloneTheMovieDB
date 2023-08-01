@@ -10,11 +10,16 @@ export default function Home() {
   const search = useRef({});
   const APItrending =
     "https://api.themoviedb.org/3/trending/movie/week?api_key=8487dd7f765e35a7fcac553fcc1d84db";
+  const abortControllerTimeOut = (timeoutMs) => {
+    const abortController = new AbortController ;
+    setTimeout( () => abortController.abort(), timeoutMs || 0 ) ;
+    return abortController.signal ;
+  }
   const fetchData = async (searchKey) => {
     let API = searchKey
       ? `https://api.themoviedb.org/3/search/movie?api_key=8487dd7f765e35a7fcac553fcc1d84db&language=en-US&query=${searchKey}&page=1&include_adult=false`
       : APItrending;
-    const results = await axios.get(API);
+    const results = await axios.get(API,{ signal:abortControllerTimeOut(5000) });
     setData( (prev) => {
       checkData.current = prev ;
       return results.data.results ;

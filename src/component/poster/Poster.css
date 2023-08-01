@@ -11,6 +11,10 @@
 }
 .Postercolumn{
     height: auto ;
+    display: flex ;
+    justify-content: center ;
+    align-items: center ;
+    flex-direction: column;
 }
 .Posteritem1{
     transform: translateY(-8000px) ;

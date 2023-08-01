@@ -16,12 +16,13 @@ import Login from './component/login/login';
 import Test from './component/test/test';
 import Profile from './Profile/Profile';
 import MyList from './Profile/content/MyList';
+import Parentcomponent from './test/parentcomponent';
 
 const router = createBrowserRouter([{
     path: "/home" ,
     element: <Header /> ,
     children: [{
-      path: "/home/data" ,
+      path: "/home/find" ,
       element: <Home />
     },{
       path:"/home/start" ,
@@ -34,7 +35,7 @@ const router = createBrowserRouter([{
     path: "/login" ,
     element: <Login /> 
   },{
-    path: "/test" ,
+    path: "/test  " ,
     element:<Test /> ,
   },{
     path: "/profile" ,
@@ -43,13 +44,16 @@ const router = createBrowserRouter([{
       path: "/profile/mylist" ,
       element: <MyList/> ,
     }]
+  },{
+    path: "/test" ,
+    element: <Parentcomponent/> ,
   }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider store={store}>    
       <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>

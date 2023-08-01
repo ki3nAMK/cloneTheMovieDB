@@ -8,19 +8,23 @@ import { Button } from "antd";
 export default function Poster() {
   const [data, getData] = useState([]);
   const arrAddPoster = [1, 2, 3, 4, 5] ;
-  const changeRouter = useNavigate()  ;
-  console.log(data) ;
+  const changeRouter = useNavigate() ;
   const APIbrowser =
     "https://api.themoviedb.org/3/trending/movie/week?api_key=8487dd7f765e35a7fcac553fcc1d84db";
+  const abortControllerTimeOut = (timeoutMs) => {
+    const abortController = new AbortController ;
+    setTimeout( () => abortController.abort(), timeoutMs || 0 ) ;
+    return abortController.signal ;
+  }
   useEffect(() => {
     axios
-      .get(APIbrowser)
+      .get(APIbrowser, { signal:abortControllerTimeOut(5000) })
       .then((res) => getData(res.data.results))
       .catch((err) => console.log(err)) ;
   }, []) ;
   const handleNavigate = () => {
     const checkedValue = localStorage.getItem("checked :");
-    const path = checkedValue ? "/netflixAlike" : "/login";
+    const path = checkedValue ? "/netflixAlike" : "/login"; 
     changeRouter(path);
   };
   return (

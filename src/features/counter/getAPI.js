@@ -1,47 +1,47 @@
-import { ConsoleSqlOutlined } from '@ant-design/icons';
-import { createSlice } from '@reduxjs/toolkit' ;
-
-export const GetAPI = createSlice({
-    name: "api" ,
-    initialState: {
-        favouriteFilm : localStorage.getItem('myList :') ?  
-            JSON.parse(localStorage.getItem("myList :")) : [] ,
-        uploadImage : '' ,
-        listOfNotification : localStorage.getItem('listNotify : ') ? 
-            JSON.parse(localStorage.getItem('listNotify : ')) : [] , 
-        reverseMyList : localStorage.getItem('reverseList : ') ? 
-            JSON.parse(localStorage.getItem('reverseList : ')) : [] , 
-    }, 
-    reducers: {
-        addIntoMyList : (state,action) => {
-            const pushElementWhenstateContentExisted = () => {
-                let checkArr = JSON.parse(JSON.stringify(state.favouriteFilm)) ;
-                let isInside = false ;
-                checkArr.forEach( (element) => {
-                    if(JSON.stringify(element) === JSON.stringify(action.payload)) { isInside = true } ; 
-                })
-                let ans = !isInside ? state.favouriteFilm.push(action.payload) : null ; 
-            } 
-            state.favouriteFilm.length === 0  
-                ? state.favouriteFilm.push(action.payload)
+import { ConsoleSqlOutlined } from '@ant-design/icons' ;  
+import { createSlice } from '@reduxjs/toolkit' ;  
+  
+export const GetAPI = createSlice({  
+    name: "api" ,  
+    initialState: {  
+        favouriteFilm : localStorage.getItem('myList :') ?     
+            JSON.parse(localStorage.getItem("myList :")) : [] ,  
+        uploadImage : '' ,  
+        listOfNotification : localStorage.getItem('listNotify : ') ?   
+            JSON.parse(localStorage.getItem('listNotify : ')) : [] ,  
+        reverseMyList : localStorage.getItem('reverseList : ') ?  
+            JSON.parse(localStorage.getItem('reverseList : ')) : [] ,   
+    },   
+    reducers: {    
+        addIntoMyList : (state,action) => {   
+            const pushElementWhenstateContentExisted = () => {      
+                let checkArr = JSON.parse(JSON.stringify(state.favouriteFilm)) ;  
+                let isInside = false ;  
+                checkArr.forEach( (element) => {  
+                    if(JSON.stringify(element) === JSON.stringify(action.payload)) { isInside = true } ;   
+                })  
+                let ans = !isInside ? state.favouriteFilm.push(action.payload) : null ;   
+            }   
+            state.favouriteFilm.length === 0    
+                ? state.favouriteFilm.push(action.payload)  
                 : pushElementWhenstateContentExisted()  
-            localStorage.setItem("myList :",JSON.stringify(state.favouriteFilm)) ;
-        } ,
-        removeFromMyList : (state,action) => {
+            localStorage.setItem("myList :",JSON.stringify(state.favouriteFilm)) ;  
+        } ,  
+        removeFromMyList : (state,action) => { 
             let positionItemRemoved = null ; 
-            state.favouriteFilm.forEach( (item,pos) => {
-                if(item.movieName === action.payload) positionItemRemoved=pos ;
-            }) ;
+            state.favouriteFilm.forEach( (item,pos) => { 
+                if(item.movieName === action.payload) positionItemRemoved=pos ; 
+            }) ; 
             let newItem = JSON.stringify(state.favouriteFilm[positionItemRemoved]) ; 
-            newItem = !JSON.stringify(state.reverseMyList).includes(newItem) ?  
+            newItem = !JSON.stringify(state.reverseMyList).includes(newItem) ? 
             state.reverseMyList.push(state.favouriteFilm[positionItemRemoved]) : null ; 
-            state.favouriteFilm.splice(positionItemRemoved,1) ;
-            localStorage.setItem("myList :",JSON.stringify(state.favouriteFilm)) ;
-            localStorage.setItem('reverseList : ',JSON.stringify(state.reverseMyList)) ;
-        } , 
-        addImageProfile : (state,action) => {
-            state.uploadImage = action.payload ; 
-            localStorage.setItem("myImage",state.uploadImage) ;
+            state.favouriteFilm.splice(positionItemRemoved,1) ; 
+            localStorage.setItem("myList :",JSON.stringify(state.favouriteFilm)) ; 
+            localStorage.setItem('reverseList : ',JSON.stringify(state.reverseMyList)) ; 
+        } ,  
+        addImageProfile : (state,action) => { 
+            state.uploadImage = action.payload ;  
+            localStorage.setItem("myImage",state.uploadImage) ; 
         } , 
         addToListNotifycation : (state,action) => {
             const pushNotification = (content) => {

@@ -22,14 +22,21 @@ function HomeNFChildTrailer(movie) {
     const [listGenreAllowed,setListGenreAllowed] = useState(3) ; 
     const [isLoading,setisLoading] = useState(false) ;
     const changeRouter = useNavigate() ; 
+    const abortControllerTimeOut = (timeoutMs) => {
+        const abortController = new AbortController ;
+        setTimeout( () => abortController.abort(), timeoutMs || 0 ) ;
+        return abortController.signal ;
+    }
     useEffect( () => {
-        axios.get(`https://api.themoviedb.org/3/movie/${movie.movieID}?api_key=8487dd7f765e35a7fcac553fcc1d84db&append_to_response=videos`)
+        axios.get(`https://api.themoviedb.org/3/movie/${movie.movieID}?api_key=8487dd7f765e35a7fcac553fcc1d84db&append_to_response=videos`
+        ,{ signal:abortControllerTimeOut(5000) })
           .then( (res) => setData(res.data) )
           .catch( (err) => console.log(err) )
     },[])
     useEffect( () => {
         const fetchAPI = async () => {
-            const response = await axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${APIkey}&language=en-US`) 
+            const response = await axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${APIkey}&language=en-US`
+            ,{ signal:abortControllerTimeOut(5000) }) 
             setListGenre(response.data.genres) ;
             setisLoading(false) ; 
         };
@@ -68,7 +75,7 @@ function HomeNFChildTrailer(movie) {
         },{
           label: 'Log out',
           key: '3',
-          icon: <LogoutOutlined />,
+          icon: <LogoutOutlined />
     }];
     const menuProps = {
         items,

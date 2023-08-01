@@ -1,7 +1,7 @@
 import { Fragment, memo, useEffect, useRef } from "react";
 import "./Profile.css" ;
 import { BellOutlined , MailOutlined , UserOutlined , InfoCircleOutlined , HeartOutlined
-, BookOutlined , SettingOutlined , DingtalkOutlined , LogoutOutlined } from "@ant-design/icons" ;
+, BookOutlined , SettingOutlined , DingtalkOutlined , LogoutOutlined , NotificationOutlined } from "@ant-design/icons" ;
 import { Outlet, useNavigate } from "react-router-dom";
 import { Avatar } from "antd";
 import CountNotify from "./countNotify";
@@ -21,11 +21,14 @@ function Profile() {
             changeRouter("/profile/mylist") ;
         } ,
     },{
-        title: "History" ,
+        title: "Mail" ,
         icon : <BookOutlined />
     },{
         title: "Setting" ,
         icon : <SettingOutlined />
+    },{
+        title: "Notifycation" ,
+        icon : <NotificationOutlined />
     },{
         title: "Log out" ,
         icon : <LogoutOutlined />
@@ -42,7 +45,7 @@ function Profile() {
         <div className="ProfileWrapperHeader">
             <div className="ProfileNavbar">
                 <div className="ProfileNavBarHeader">
-                    <p>The MovieDB</p>
+                    <p onClick={ (e) => changeRouter('/netflixAlike')}>The MovieDB</p>
                     <div>
                         <span ref={getContent}>
                             <span><BellOutlined /></span>
