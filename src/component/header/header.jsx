@@ -2,7 +2,7 @@ import { Menu,Row,Col,Avatar,Drawer } from "antd";
 import { UserOutlined,MenuOutlined } from "@ant-design/icons" ;
 import "./header.css";
 import { useState , Fragment, memo } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet,useNavigate } from "react-router-dom";
 import movieDbRemovebgPreview from "../movieDbRemovebgPreview.png"
 
 function Header() {
@@ -27,12 +27,16 @@ function Header() {
     </Fragment>
 }
 function AppMenu(props) {
+    const changeRouter = useNavigate() ;
     let text = props.FD , checkMargin = props.mg , openMenu = props.funcOpenMenu ;
     return <Fragment>
           <li className="Headernav-bar" style={{flexDirection:text}}>
             <span><img src={ movieDbRemovebgPreview } style={{width:"100px",height:"auto"}}/></span>
             <span className="Headernav-bar" style={{flexDirection:text}}>
-                <ul className={checkMargin+" AppMenuitem AppMenufs25px"} >Home</ul>
+                <ul className={checkMargin+" AppMenuitem AppMenufs25px"} onClick={ (e) => {
+                    e.preventDefault() ;
+                    changeRouter('/netflixAlike') ;
+                }}>Home</ul>
                 <ul className={checkMargin+" AppMenuitem AppMenufs25px"} >About Us</ul>
                 <ul className={checkMargin+" AppMenuitem AppMenufs25px"} >Contact Us</ul>
             </span>

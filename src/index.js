@@ -19,13 +19,13 @@ import MyList from './Profile/content/MyList';
 import Parentcomponent from './test/parentcomponent';
 
 const router = createBrowserRouter([{
-    path: "/home" ,
+    path: "/" ,
     element: <Header /> ,
     children: [{
-      path: "/home/find" ,
+      path: "/find" ,
       element: <Home />
     },{
-      path:"/home/start" ,
+      path:"/" ,
       element: <Poster /> ,
     }],
   },{

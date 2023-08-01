@@ -3,11 +3,13 @@ import { useEffect, useRef, useState, Fragment } from "react";
 import MovieCart from "./MovieCart";
 import "./home.css";
 import { Pagination } from "antd";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   const [data, setData] = useState([]);
   const checkData = useRef({});
   const search = useRef({});
+  const changeRouter = useNavigate() ;
   const APItrending =
     "https://api.themoviedb.org/3/trending/movie/week?api_key=8487dd7f765e35a7fcac553fcc1d84db";
   const abortControllerTimeOut = (timeoutMs) => {
@@ -47,7 +49,7 @@ export default function Home() {
   };
   return (
     <Fragment>
-      <div className="HomeWrapper">
+      <div className="HomeWrapper" >
         <div className="HomeCategory">
           <form onSubmit={SearchMovies}>
             <input

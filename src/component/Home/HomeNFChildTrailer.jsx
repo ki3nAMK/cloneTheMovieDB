@@ -58,7 +58,7 @@ function HomeNFChildTrailer(movie) {
     const handleMenuClick = (event) => {
         if(event.key==="3") {
             localStorage.removeItem("checked :") ;
-            changeRouter("/home/start") ;
+            changeRouter("/") ;
         }
         if(event.key==="1") {
             changeRouter("/profile") ;
@@ -163,7 +163,11 @@ function HomeNFChildTrailer(movie) {
                     <span className="HomeNFChildTrailerHiddenIcon HomeNFChildTrailerli HomeNFChildTrailercursor"><MenuOutlined
                         onClick={ (e) => setOpenMenu(true)} 
                     /></span>
-                    <span className="HomeNFChildTrailerspan HomeNFChildTrailerli HomeNFChildTrailercursor"><SearchOutlined /></span>
+                    <span className="HomeNFChildTrailerspan HomeNFChildTrailerli HomeNFChildTrailercursor" onClick={ (e) => {
+                        e.preventDefault()
+                        changeRouter('/find')
+                    } 
+                    }><SearchOutlined /></span>
                     <span className="HomeNFChildTrailerspan HomeNFChildTrailerli HomeNFChildTrailercursor">Kids</span>
                     <span className="HomeNFChildTrailerspan HomeNFChildTrailerli HomeNFChildTrailercursor"><BellOutlined /></span>
                     <span className="HomeNFChildTrailerspan HomeNFChildTrailerli HomeNFChildTrailercursor"><UserOutlined /></span>
